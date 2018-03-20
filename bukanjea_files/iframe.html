@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/iframe.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/css/general.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/fonts/gral/style.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/css/jquery-ui-1.8.9.custom.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/css/jquery-ui-theme.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/css/jquery-ui-timepicker-addon.min.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/css/postcron.css">
+    <script src="./pusher.min.js.descarga"></script>
+</head>
+<body>
+    <div id="postcron_modal" class="postcron-ce pce-wrapper" style="">
+        <div class="pce-overLight">
+
+            <div class="pce-contExtension">
+
+                <div id="postcron_submit_processing" class="pce-procesing-submit" style="display: none">
+                    <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/loading1.gif">
+                </div>
+
+                <div class="postcronExtension ui-draggable ui-draggable-handle" style="position: relative;">
+
+                    <form id="postcron_form_post" class="pce-formPost">
+                        <input type="hidden" class="_field_post_action" value="">
+                        <input type="hidden" class="_field_post_type" value="">
+                        <input type="hidden" class="_field_use_short_url" value="0">
+                        <input type="hidden" class="_field_post_pages" value="">
+                        <input type="hidden" class="_field_albums" value="">
+                        <input type="hidden" class="_field_post_link" value="">
+                        <input type="hidden" class="_field_original_url" value="">
+                        <input type="hidden" class="_field_post_time" value="">
+                    </form>
+
+                    <input type="text" class="_field_post_time hasDatepicker" value="" id="postcron_field_time" style="height: 0px; width:0px; border: 0px; right: -5555px;position: absolute;">
+
+                    <!-- START header -->
+                    <div class="pce-header">
+                        <div class="pce-col-lg-6 pce-col-md-6 pce-col-sm-6 pce-col-xs-6">
+                            <div class="pce-row">
+                                <a href="http://postcron.com/" target="_blank" class="pce-logo">
+                                    <img class="" src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/logo.png" alt="Postcron.com" width="100%">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pce-col-lg-6 pce-col-md-6 pce-col-sm-6 pce-col-xs-6 pce-text-right">
+                            <div class="pce-row">
+                                <span class="pce-conbtn" id="upgrade_button" style="display: none">
+                                    <a href="http://postcron.com/pricing" target="_blank" class="pce-btn pce-btn-sm pce-btn-secundary pce-text-uppercase pce-upgradeLink">upgrade now</a>
+                                </span>
+                                <a href="javascript:void(0);" data-target="#postcron_modal" class="pce-closeExtension pce-icon-gral-ex _pce-CloseModal"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /END header -->
+
+                    <!-- START accounts wrapper -->
+                    <div class="pce-tpl-selectorAccounts">
+                        <div class="pce-boxAccount _headerAccounts_v01">
+                            <div class="pce-inBoxAccount">
+
+                                <div id="postcron_account_list"></div>
+                                <a href="http://postcron.com/es/connect" target="_blank" class="pce-AddMoreIn" title="Add Accounts">
+                                    <span class="pce-icon-gral-more"></span>
+                                </a>
+
+                            </div><!--End .inBoxAccount -->
+                        </div><!--End .boxAccount -->
+
+                        <div class="pce-viewMore _pce-OutButtViewMore" style="display: none">
+                            <span class="pce-icon-gral-arrowdown"></span>
+                            <div class="pce-Count">+ 5</div>
+                        </div>
+
+                    </div>
+                    <!-- END accounts wrapper -->
+
+                    <div class="pce-containerPoster">
+
+                        <!-- START .pce-contentInRA (remember account) -->
+                        <div class="pce-contentInRA">
+                            <div id="pce_account_remember_list" class="pce-accountsRemember" style="display: none">
+                            </div>
+                        </div>
+                        <!-- END .contentInRA -->
+
+                        <div class="pce-shareMedia">
+
+                            <div class="pce-col-lg-12 pce-col-md-12 pce-col-sm-12 pce-col-xs-12" style="/*display:none;*/">
+                                <div class="pce-row">
+                                    <textarea id="postcron_message_post" class="pce-writeText _pce-scrollBar _pce-countdown" data-countdown-target="#postcron_countdown" type="text" placeholder="Write something..." tabindex="5000" style="overflow-y: hidden; outline: none;"></textarea>
+                                    <div id="postcron_countdown" class="pce-countChars" style="visibility: hidden;">140</div>
+                                </div>
+                            </div>
+
+                            <!-- START link wrapper -->
+                            <div id="postcron_content_post_link" class="pce-showUrl pce-contentPostLink" style="display: none">
+
+                                <div class="pce-deleteLinkPost pce-icon-gral-ex _pce-delete-post-link" title="Delete Post"></div>
+
+                                <div class="pce-lefting pce-col-lg-4 pce-col-md-4 pce-col-sm-4 pce-col-xs-4">
+                                    <div class="pce-imgUrl _pce-carrouselImgUrl pce-activeHover">
+                                        <div id="postcron_delete_image_link_uploaded" class="pce-del pce-del-white pce-icon-gral-ex" title="Delete"></div>
+                                        <div class="pce-moreLeft pce-icon-gral-arrowleft _pce-carrousel-move" data-direction="prev" data-target="#postcron_link_image_src"></div>
+                                        <div class="pce-moreRight pce-icon-gral-arrowright _pce-carrousel-move" data-direction="next" data-target="#postcron_link_image_src"></div>
+                                        <img class="img" id="postcron_link_image_src" src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/iframe.html">
+                                        <div class="pce-loading" style="display: none">
+                                            <div class="progress" style="display: none">
+                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                    <span class="sr-only">0%</span>
+                                                </div>
+                                            </div>
+                                            <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/loading1.gif">
+                                        </div>
+                                        <div class="pce-uploadAnotherImg">
+                                            <a class="pce-btn pce-btn-md pce-btn-primary _pce-uploadImageLink" href="javascript:void(0)"><span class="pce-icon-gral-upload"></span> <span class="translation">Another Photo</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="pce-toUploadImg _pce-toUploadImg">
+                                        <a class="_pce-uploadImageLink" href="javascript:void(0)">
+                                            <div class="pce-in">
+                                                <i class="pce-icon-gral-image"></i>
+                                                <span>Upload the image here!</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="pce-col-lg-8 pce-col-md-8 pce-col-sm-8 pce-col-xs-8">
+                                    <textarea id="postcron_link_title" class="pce-titlePost pce-editText _pce-scrollBar" type="text" placeholder="Title..." maxlength="60" tabindex="5001" style="overflow-y: hidden; outline: none;"></textarea>
+                                    <textarea id="postcron_link_description" class="pce-textPost pce-editText _pce-scrollBar" type="text" placeholder="Description..." maxlength="120" tabindex="5002" style="overflow-y: hidden; outline: none;"></textarea>
+                                    <div class="pce-separateV10"></div>
+                                    <h6 class="pce-urlPost">
+                                        <span class="pce-icon-gral-link"></span>
+                                        <span id="postcron_link_url" class="pce-text-uppercase">WWW.SOCIALTOOLS.ME</span>
+                                    </h6>
+                                </div>
+                            </div>
+                            <!-- END link wrapper  -->
+
+                            <!-- START photo wrapper -->
+                            <div id="postcron_content_post_photo" class="pce-showUrl pce-contentShowUrl" style="display: none">
+                                <div class="pce-lefting pce-col-lg-4 pce-col-md-4 pce-col-sm-4 pce-col-xs-4">
+                                    <div class="pce-imgUrl pce-activeHover">
+                                        <div id="postcron_delete_image_post_photo" class="pce-del pce-del-white pce-icon-gral-ex" title="Delete"></div>
+                                        <img class="img" id="postcron_photo_image_src" src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/iframe.html" data-filename="">
+                                        <div class="pce-loading" style="display: none">
+                                            <div class="progress" style="display: none">
+                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                    <span class="sr-only">0%</span>
+                                                </div>
+                                            </div>
+                                            <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/loading1.gif">
+                                        </div>
+                                        <div class="pce-uploadAnotherImg">
+                                            <a id="postcron_upload_image_photo" class="pce-btn pce-btn-md pce-btn-primary" href="javascript:void(0)">
+                                                <span class="pce-icon-gral-upload"></span> <span class="translation">Another Photo</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pce-col-lg-6 pce-col-md-6 pce-col-sm-6 pce-col-xs-6">
+                                    <!--<div class="pce-mandWatermark">-->
+                                    <!--<h5>Watermarks & Albums</h5>-->
+                                    <!--<div class="pce-wkList _pce-scrollBar">-->
+                                    <!--<div class="pce-separateV05"></div>-->
+                                    <!--<div id="postcron_watermark_list"></div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <!-- END photo wrapper -->
+
+
+                            <div id="postcron_content_upload_image" class="pce-contentUploadImageSmall" style="display: none">
+                                <a href="javascript:void(0)" id="postcron_upload_image_main">
+                                    <div class="pce-uploadNewImage">
+                                        <span class="pce-iconUpLoad pce-icon-gral-image"></span>
+                                        <span class="pce-textUpLoad">+&nbsp;<span class="translation">Upload Image</span></span>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="pce-footShared">
+                                <div class="pce-actionsFoot">
+
+                                    <div id="postcron_delay_wrapper" class="pce-betweenEach" title="Add this delay between each post" style="display:none;">
+                                        <a href="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/iframe.html#" class="pce-checkBox _pce-check-delay-post active">
+                                            <span class="pce-checker pce-icon-gral-ok"></span>
+                                        </a>
+                                        <input type="text" class="pce-form-control pce-delay-time _pce-delayTime" maxlength="2" value="5">
+                                        <span class="minutes-text">minutes</span>
+                                    </div>
+
+                                    <div class="pce-btn-group pce-dropup">
+                                        <a id="pce_rememberSubmit" href="javascript:void(0)" class="pce-butt pce-btn pce-btn-md pce-btn-secundary pce-text-uppercase _pce-showCalendar translate-calendar">schedule</a>
+                                        <button type="button" class="pce-buttArrow pce-btn pce-btn-md pce-btn-secundary pce-dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="pce-icon-gral-arrowdown"></span>
+                                        </button>
+                                        <ul class="pce-dropdown-menu pce-text-capitalize">
+                                            <li><a href="javascript:void(0)" class="_pce-submitAction _pce-submitPost translate-now" data-action="now">post now</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="javascript:void(0)" class="_pce-submitAction _pce-showCalendar translate-calendar" data-action="calendar">schedule</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="javascript:void(0)" class="_pce-submitAction _pce-submitPost translate-auto" data-action="auto">predefined publishing times</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div><!-- END .footShared -->
+
+                        </div><!-- END .shareMedia -->
+
+                    </div><!-- End .containerPoster -->
+                </div><!-- End .postcronExtension -->
+
+            </div><!-- End .contExtension -->
+        <div id="ascrail2000" class="nicescroll-rails" style="width: 5px; z-index: 500; cursor: default; position: absolute; top: 172px; left: 684px; height: 80px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgba(0, 0, 0, 0.3); border: 0px solid transparent; background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 5px; z-index: 500; cursor: default; position: absolute; top: 0px; left: 95px; height: 0px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgba(0, 0, 0, 0.3); border: 0px solid transparent; background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2002" class="nicescroll-rails" style="width: 5px; z-index: 500; cursor: default; position: absolute; top: 0px; left: 95px; height: 68px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgba(0, 0, 0, 0.3); border: 0px solid transparent; background-clip: padding-box; border-radius: 5px;"></div></div></div><!-- END .overLight -->
+
+    </div><!-- END .tpl-chrome-extension -->
+
+    <form enctype="multipart/form-data">
+        <input id="postcron_upload_file_element" type="file" name="file" style="display: none">
+        <input type="hidden" name="version" value="2">
+    </form>
+
+
+    <div id="pce_limitMultiPost" class="postcron-ce pce-modal fade" tabindex="-1" role="dialog" aria-labelledby="limitReachedMultiply">
+        <div class="pce-modal-dialog pce-modal-upgrade">
+            <div class="pce-modal-content">
+                <div class="pce-modal-header pce-text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <div class="separateV05"></div>
+                    <h4 class="pce-fontA-bold pce-text-primary pce-text-uppercase translate-title">Wow! 10 pending posts :)</h4>
+                </div>
+
+                <div class="pce-modal-body">
+                    <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/post_reached_modal.jpg" alt="" width="100%">
+                    <div class="separateV10"></div>
+                    <p class="translate-description">The FREE+ version doesn't allow to schedule more than 10 pending posts. Check our Paid Plans to post without limits (you'll also have more account, bulk uploader, and more benefits!)</p>
+                </div>
+
+                <div class="pce-modal-footer pce-rCenter">
+                    <a class="pce-btn pce-btn-md pce-btn-secundary pce-text-uppercase pce-upgradeLink" href="http://postcron.com/pricing" target="_blank">upgrade now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="pce_limitPostPerSocialAccount" class="postcron-ce pce-modal fade" tabindex="-1" role="dialog" aria-labelledby="limitReachedMultiply">
+        <div class="pce-modal-dialog pce-modal-upgrade">
+            <div class="pce-modal-content">
+                <div class="pce-modal-header pce-text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <div class="separateV05"></div>
+                    <h4 class="pce-fontA-bold pce-text-primary pce-text-uppercase translate-title">You've reached the scheduling limit for your account</h4>
+                </div>
+
+                <div class="pce-modal-body">
+                    <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/post_reached_modal.jpg" alt="" width="100%">
+                    <div class="separateV10"></div>
+                    <p class="translate-description">Your current plan allows only %s queued posts at a time per social account. Upgrade now to increase your queue limit.</p>
+                </div>
+
+                <div class="pce-modal-footer pce-rCenter">
+                    <a class="pce-btn pce-btn-md pce-btn-secundary pce-text-uppercase pce-upgradeLink" href="http://postcron.com/pricing" target="_blank">upgrade now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="postcron-ce alert alert-success alert-fixed" style="display: none">
+        <button type="button" class="close">×</button>
+        <span class="pce-icon-gral-ok"></span>
+        <span class="message"></span>
+    </div>
+    <div class="postcron-ce alert alert-danger alert-fixed" style="display: none">
+        <button type="button" class="close">×</button>
+        <span class="pce-icon-gral-warning"></span>
+        <span class="message"></span>
+    </div>
+    <div class="postcron-ce alert alert-info alert-fixed" style="display: none">
+        <button type="button" class="close">×</button>
+        <span class="pce-icon-gral-info"></span>
+        <span class="message"></span>
+    </div>
+
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/configs.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/debug.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/jquery.min.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/jquery-ui.min.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/bootstrap.min.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/twitter-text.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/nicescroll.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/shared/libs/js/jquery-ui-timepicker-addon.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/chrome/chrome-port-wrapper.js"></script>
+<script src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/data/iframe-embed.js"></script><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+<!--<script src="../data/chrome/chrome-listener.js"></script>-->
+
+
+
+<!--style="display: none;"-->
+<div id="postcron_login_modal" class="postcron-ce pce-wrapper pce-login" style="display: none;">
+    <div class="pce-overLight">
+        <div class="pce-contExtension">
+            <div class="postcronExtension" style="position: relative;">
+                <!-- START header -->
+                <div class="pce-header">
+                    <div class="pce-col-lg-6 pce-col-md-6 pce-col-sm-6 pce-col-xs-6">
+                        <div class="pce-row">
+                            <a href="http://www.postcron.com/" target="_blank" class="pce-logo"><img class="" src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/logo.png" alt="Postcron.com" width="100%"></a>
+                        </div>
+                    </div>
+                    <div class="pce-col-lg-6 pce-col-md-6 pce-col-sm-6 pce-col-xs-6 pce-text-right">
+                        <div class="pce-row">
+                            <a href="javascript:void(0)" data-target="#postcron_login_modal" class="pce-closeExtension pce-icon-gral-ex _pce-CloseModal"> </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /END header -->
+
+                <div class="pce-containerLogin">
+
+                    <div class="pce-wrapper-login">
+                        <div class="pce-login-buttons">
+                            <a href="javascript:void(0)" class="pce-btn pce-btn-md pce-btn-facebook _pce-socialLogin" data-target="facebook">
+                                <span class="pce-icon pce-icon-gral-facebook"></span> <span class="translate">Iniciar sesión con Facebook</span>
+                            </a>
+                            <a href="javascript:void(0)" class="pce-btn pce-btn-md pce-btn-twitter _pce-socialLogin" data-target="twitter">
+                                <span class="pce-icon pce-icon-gral-twitter"></span> <span class="translate">Iniciar sesión con Twitter</span>
+                            </a>
+                            <a href="javascript:void(0)" class="pce-btn pce-btn-md pce-btn-googleplus _pce-socialLogin" data-target="google">
+                                <span class="pce-icon pce-icon-gral-google"></span> <span class="translate">Iniciar sesión con Google+</span>
+                            </a>
+                        </div>
+                        <div class="pce-loading-signin">
+                            <img src="chrome-extension://kahoebmmfnjmjcbclecdkhiapmefpaed/templates/img/loading1.gif">
+                        </div>
+                    </div>
+
+                </div><!-- End .containerPoster -->
+            </div><!-- End .postcronExtension -->
+        </div><!-- End .pce-contExtension -->
+    </div><!-- END .pce-overLight -->
+</div><!-- END .postcron-ce -->
+</body></html>
