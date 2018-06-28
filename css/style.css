@@ -55,3 +55,11 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+/*Afinar estilos de modal*/
+.modal.modal-fixed-footer .modal-content {
+  width: auto;
+}
+.modal .modal-footer {
+  width: 90%
+}

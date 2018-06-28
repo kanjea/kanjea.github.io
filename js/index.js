@@ -7,10 +7,10 @@ $("#buggl_form").validate({
         itinerary: {required: true}
     },
     messages: {
-        name: "Don't forget to tell us your name",
-        destination: "Please tell us where you wanna go",
-        email: "You should enter a valid email address",
-        itinerary: "Tell us what you want to do in your trip"
+        name: "No olvides decirnos tu nombre",
+        destination: "Por favor, dinos dónde quieres ir",
+        email: "Debes ingresar una dirección de correo electrónico válida",
+        itinerary: "Cuéntanos qué sobre el comercio de tu zona"
 
     },
     validClass: "valid",
@@ -47,3 +47,46 @@ $("#buggl_form").validate({
 });
 //});
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAZzH7rrL3uhSmMyrxl7uKaWZwQ-UU9hdg",
+    authDomain: "kanjea-usuarios.firebaseapp.com",
+    databaseURL: "https://kanjea-usuarios.firebaseio.com",
+    projectId: "kanjea-usuarios",
+    storageBucket: "",
+    messagingSenderId: "825986554770"
+  };
+  firebase.initializeApp(config);
+  //Referencia para la colección de requerimientos
+    //
+    //          ¡¡¡  CAMBIAR LA REFERECIA A  'pruebas' CUANDO SE ESTÉ PROBANDO !!!
+    //
+    //
+  var registradosRef = firebase.database().ref('registrados');
+  //var registradosRef = firebase.database().ref('pruebas');
+
+  $('#btn-send').click(function(){
+    // Tomando valores
+    var name =  getInputVal("name");
+    var telefono =  getInputVal("destination");
+    var email =  getInputVal("email");
+    var itinerary =  getInputVal("itinerary");
+
+    guardarRegistro(name, telefono, email, itinerary);
+
+        
+  });
+
+  function getInputVal(id){
+    return document.getElementById(id).value;
+  }
+
+  function guardarRegistro(name, telefono, email, itinerary){
+    var nuevoRegistradosRef = registradosRef.push();
+    nuevoRegistradosRef.set({
+        nombre: name,
+        telefono: telefono,
+        correo: email,
+        negocio_cercano : itinerary,
+    })
+}
